@@ -6,7 +6,6 @@
     <title>Everyday Calculator</title>
     <style>
         :root {
-            --page: #f4efe7;
             --panel: #18212f;
             --screen: #f9fafb;
             --screen-text: #121826;
@@ -23,24 +22,20 @@
             --danger: #dc2626;
             --shadow: 0 22px 60px rgba(25, 32, 44, 0.18);
         }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         body {
             min-height: 100vh;
             display: grid;
             place-items: center;
             padding: 28px;
-            background:
-                linear-gradient(135deg, #f4efe7 0%, #e8f0f3 52%, #f7dfd3 100%);
+            background: linear-gradient(135deg, #f4efe7 0%, #e8f0f3 52%, #f7dfd3 100%);
             color: var(--ink);
             font-family: "Segoe UI", Arial, sans-serif;
         }
-
         .app {
             width: min(960px, 100%);
             display: grid;
@@ -48,19 +43,16 @@
             gap: 22px;
             align-items: stretch;
         }
-
         .calculator,
         .history {
             border: 1px solid var(--border);
             box-shadow: var(--shadow);
         }
-
         .calculator {
             background: var(--panel);
             border-radius: 24px;
             padding: 22px;
         }
-
         .top-bar {
             display: flex;
             align-items: center;
@@ -68,14 +60,11 @@
             gap: 16px;
             margin-bottom: 18px;
         }
-
         h1 {
             color: #ffffff;
             font-size: 26px;
             font-weight: 700;
-            letter-spacing: 0;
         }
-
         .history-button {
             display: none;
             width: 46px;
@@ -87,7 +76,6 @@
             font-size: 22px;
             cursor: pointer;
         }
-
         .screen {
             min-height: 128px;
             display: flex;
@@ -100,7 +88,6 @@
             background: var(--screen);
             border: 1px solid #edf0f5;
         }
-
         .previous {
             min-height: 22px;
             color: var(--muted);
@@ -108,7 +95,6 @@
             font-size: 15px;
             overflow-wrap: anywhere;
         }
-
         #display {
             width: 100%;
             border: 0;
@@ -117,15 +103,13 @@
             color: var(--screen-text);
             text-align: right;
             font-size: clamp(34px, 8vw, 48px);
-            font-weight: 750;
+            font-weight: 700;
         }
-
         .keys {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 12px;
         }
-
         button {
             min-width: 0;
             height: 64px;
@@ -137,54 +121,43 @@
             cursor: pointer;
             transition: transform 140ms ease, background 140ms ease, box-shadow 140ms ease;
         }
-
         button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 18px rgba(10, 15, 25, 0.15);
         }
-
         button:active {
             transform: translateY(0);
             box-shadow: none;
         }
-
         .key {
             background: var(--key);
             color: var(--ink);
         }
-
         .key:hover {
             background: var(--key-hover);
         }
-
         .action {
             background: #e8eef9;
             color: var(--accent-dark);
         }
-
         .operator {
             background: var(--operator);
             color: #ffffff;
         }
-
         .operator:hover {
             background: var(--operator-dark);
         }
-
         .equals {
             background: var(--success);
             color: #ffffff;
         }
-
         .clear {
             background: var(--danger);
             color: #ffffff;
         }
-
         .zero {
             grid-column: span 2;
         }
-
         .history {
             display: flex;
             flex-direction: column;
@@ -193,7 +166,6 @@
             background: #ffffff;
             overflow: hidden;
         }
-
         .history-header {
             display: flex;
             align-items: center;
@@ -202,12 +174,10 @@
             padding: 20px;
             border-bottom: 1px solid var(--border);
         }
-
         .history-header h2 {
             font-size: 20px;
             line-height: 1.2;
         }
-
         .close-history {
             display: none;
             width: 38px;
@@ -217,14 +187,12 @@
             color: #111827;
             font-size: 20px;
         }
-
         .history-list {
             flex: 1;
             list-style: none;
             padding: 14px;
             overflow-y: auto;
         }
-
         .history-list li {
             display: flex;
             align-items: center;
@@ -239,41 +207,38 @@
             cursor: pointer;
             overflow-wrap: anywhere;
         }
-
         .history-list li:hover {
             background: #eef6ff;
             border-color: #c9ddff;
         }
-
+        .history-text {
+            flex: 1;
+        }
         .delete-item {
             flex-shrink: 0;
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             min-width: 0;
             border-radius: 8px;
             background: #fff1f2;
             color: #be123c;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 700;
-            line-height: 1;
             display: grid;
             place-items: center;
             transition: background 140ms ease;
         }
-
         .delete-item:hover {
             background: #fecdd3;
             transform: none;
             box-shadow: none;
         }
-
         .empty-history {
             padding: 24px 18px;
             color: var(--muted);
             text-align: center;
             line-height: 1.5;
         }
-
         .clear-history {
             height: 50px;
             margin: 0 14px 14px;
@@ -282,27 +247,12 @@
             color: #be123c;
             font-size: 16px;
         }
-
         @media (max-width: 760px) {
-            body {
-                padding: 18px;
-            }
-
-            .app {
-                grid-template-columns: 1fr;
-            }
-
-            .calculator {
-                border-radius: 22px;
-                padding: 18px;
-            }
-
+            body { padding: 18px; }
+            .app { grid-template-columns: 1fr; }
+            .calculator { border-radius: 22px; padding: 18px; }
             .history-button,
-            .close-history {
-                display: inline-grid;
-                place-items: center;
-            }
-
+            .close-history { display: inline-grid; place-items: center; }
             .history {
                 position: fixed;
                 inset: 18px;
@@ -311,15 +261,8 @@
                 transform: translateY(calc(100% + 40px));
                 transition: transform 200ms ease;
             }
-
-            .history.open {
-                transform: translateY(0);
-            }
-
-            button {
-                height: 60px;
-                border-radius: 14px;
-            }
+            .history.open { transform: translateY(0); }
+            button { height: 60px; border-radius: 14px; }
         }
     </style>
 </head>
@@ -328,256 +271,178 @@
         <section class="calculator" aria-label="Calculator">
             <div class="top-bar">
                 <h1>Calculator</h1>
-                <button class="history-button" type="button" aria-label="Open history" onclick="toggleHistory()">☰</button>
+                <button class="history-button" type="button" onclick="toggleHistory()">☰</button>
             </div>
-
             <div class="screen">
                 <div class="previous" id="previousCalculation"></div>
-                <input id="display" type="text" value="0" readonly aria-label="Current calculation">
+                <input id="display" type="text" value="0" readonly>
             </div>
-
             <div class="keys">
-                <button class="clear" type="button" onclick="clearDisplay()">C</button>
-                <button class="action" type="button" onclick="deleteLastValue()">⌫</button>
-                <button class="action" type="button" onclick="addValue('%')">%</button>
+                <button class="clear"    type="button" onclick="clearDisplay()">C</button>
+                <button class="action"   type="button" onclick="deleteLast()">⌫</button>
+                <button class="action"   type="button" onclick="addValue('%')">%</button>
                 <button class="operator" type="button" onclick="addValue('/')">÷</button>
-
-                <button class="key" type="button" onclick="addValue('7')">7</button>
-                <button class="key" type="button" onclick="addValue('8')">8</button>
-                <button class="key" type="button" onclick="addValue('9')">9</button>
+                <button class="key"      type="button" onclick="addValue('7')">7</button>
+                <button class="key"      type="button" onclick="addValue('8')">8</button>
+                <button class="key"      type="button" onclick="addValue('9')">9</button>
                 <button class="operator" type="button" onclick="addValue('*')">×</button>
-
-                <button class="key" type="button" onclick="addValue('4')">4</button>
-                <button class="key" type="button" onclick="addValue('5')">5</button>
-                <button class="key" type="button" onclick="addValue('6')">6</button>
+                <button class="key"      type="button" onclick="addValue('4')">4</button>
+                <button class="key"      type="button" onclick="addValue('5')">5</button>
+                <button class="key"      type="button" onclick="addValue('6')">6</button>
                 <button class="operator" type="button" onclick="addValue('-')">−</button>
-
-                <button class="key" type="button" onclick="addValue('1')">1</button>
-                <button class="key" type="button" onclick="addValue('2')">2</button>
-                <button class="key" type="button" onclick="addValue('3')">3</button>
+                <button class="key"      type="button" onclick="addValue('1')">1</button>
+                <button class="key"      type="button" onclick="addValue('2')">2</button>
+                <button class="key"      type="button" onclick="addValue('3')">3</button>
                 <button class="operator" type="button" onclick="addValue('+')">+</button>
-
                 <button class="key zero" type="button" onclick="addValue('0')">0</button>
-                <button class="key" type="button" onclick="addValue('.')">.</button>
-                <button class="equals" type="button" onclick="calculateAnswer()">=</button>
+                <button class="key"      type="button" onclick="addValue('.')">.</button>
+                <button class="equals"   type="button" onclick="calculate()">=</button>
             </div>
         </section>
-
-        <aside class="history" id="historyPanel" aria-label="Calculation history">
+        <aside class="history" id="historyPanel">
             <div class="history-header">
                 <h2>History</h2>
-                <button class="close-history" type="button" aria-label="Close history" onclick="toggleHistory()">×</button>
+                <button class="close-history" type="button" onclick="toggleHistory()">×</button>
             </div>
             <ul class="history-list" id="historyList"></ul>
             <button class="clear-history" type="button" onclick="clearHistory()">Clear history</button>
         </aside>
     </main>
-
     <script>
-        const display = document.getElementById("display");
-        const previousCalculation = document.getElementById("previousCalculation");
-        const historyPanel = document.getElementById("historyPanel");
-        const historyList = document.getElementById("historyList");
-
-        let justCalculated = false;
-        let history = JSON.parse(localStorage.getItem("calculatorHistory") || "[]");
+        var display = document.getElementById("display");
+        var prevLine = document.getElementById("previousCalculation");
+        var historyPanel = document.getElementById("historyPanel");
+        var historyList = document.getElementById("historyList");
+        var freshResult = false;
+        var calcHistory = JSON.parse(localStorage.getItem("calcHistory") || "[]");
 
         renderHistory();
 
-        function addValue(value) {
-            const current = display.value;
-            const last = current.slice(-1);
-            const operators = ["+", "-", "*", "/", "%"];
+        function addValue(val) {
+            var cur = display.value;
+            var ops = ["+", "-", "*", "/", "%"];
 
-            if (current === "Error" || justCalculated && !operators.includes(value)) {
+            if (cur === "Error" || (freshResult && ops.indexOf(val) === -1)) {
                 display.value = "";
+                cur = "";
+            }
+            freshResult = false;
+
+            if (display.value === "0" && val !== ".") {
+                display.value = "";
+                cur = "";
             }
 
-            justCalculated = false;
-
-            if (display.value === "0" && value !== ".") {
-                display.value = "";
-            }
-
-            if (operators.includes(value) && operators.includes(last)) {
-                display.value = current.slice(0, -1) + value;
+            var last = display.value.slice(-1);
+            if (ops.indexOf(val) !== -1 && ops.indexOf(last) !== -1) {
+                display.value = display.value.slice(0, -1) + val;
                 return;
             }
 
-            if (value === "." && current.split(/[+\-*/%]/).pop().includes(".")) {
-                return;
+            if (val === ".") {
+                var parts = display.value.split(/[+\-*/%]/);
+                var lastPart = parts[parts.length - 1];
+                if (lastPart.indexOf(".") !== -1) return;
             }
 
-            display.value += value;
+            display.value += val;
         }
 
         function clearDisplay() {
             display.value = "0";
-            previousCalculation.textContent = "";
-            justCalculated = false;
+            prevLine.textContent = "";
+            freshResult = false;
         }
 
-        function deleteLastValue() {
+        function deleteLast() {
             if (display.value === "Error" || display.value.length <= 1) {
                 clearDisplay();
                 return;
             }
-
             display.value = display.value.slice(0, -1);
         }
 
-        function calculateAnswer() {
-            const expression = display.value;
+        function calculate() {
+            var expr = display.value;
+            if (expr === "" || expr === "Error") return;
 
             try {
-                const answer = solveExpression(expression);
-                const neatAnswer = Number.isInteger(answer) ? answer : Number(answer.toFixed(8));
-
-                previousCalculation.textContent = `${formatExpression(expression)} =`;
-                display.value = neatAnswer;
-                justCalculated = true;
-                saveHistory(expression, neatAnswer);
-            } catch {
+                var result = Function("return (" + expr + ")")();
+                if (typeof result !== "number" || !isFinite(result)) {
+                    throw new Error("bad result");
+                }
+                var neat = Math.round(result * 1e10) / 1e10;
+                prevLine.textContent = niceExpr(expr) + " =";
+                display.value = neat;
+                freshResult = true;
+                saveToHistory(expr, neat);
+            } catch (e) {
                 display.value = "Error";
-                justCalculated = true;
+                freshResult = true;
             }
         }
 
-        function solveExpression(expression) {
-            const clean = expression.replace(/\s/g, "");
-
-            if (!/^-?\d*\.?\d+([+\-*/%]\d*\.?\d+)*$/.test(clean)) {
-                throw new Error("Invalid expression");
-            }
-
-            const tokens = tokenize(clean);
-            const values = [];
-            const operators = [];
-
-            tokens.forEach((token) => {
-                if (!Number.isNaN(Number(token))) {
-                    values.push(Number(token));
-                    return;
-                }
-
-                while (operators.length && priority(operators.at(-1)) >= priority(token)) {
-                    values.push(applyOperator(operators.pop(), values.pop(), values.pop()));
-                }
-
-                operators.push(token);
-            });
-
-            while (operators.length) {
-                values.push(applyOperator(operators.pop(), values.pop(), values.pop()));
-            }
-
-            if (!Number.isFinite(values[0])) {
-                throw new Error("Invalid result");
-            }
-
-            return values[0];
+        function niceExpr(expr) {
+            return expr.replace(/\*/g, "×").replace(/\//g, "÷");
         }
 
-        function tokenize(expression) {
-            const tokens = [];
-            let number = "";
-
-            for (let index = 0; index < expression.length; index += 1) {
-                const character = expression[index];
-                const previous = tokens[tokens.length - 1];
-                const isNegativeNumber = character === "-" && !number && (!previous || "+-*/%".includes(previous));
-
-                if (/\d|\./.test(character) || isNegativeNumber) {
-                    number += character;
-                    continue;
-                }
-
-                if (number) {
-                    tokens.push(number);
-                    number = "";
-                }
-
-                tokens.push(character);
-            }
-
-            if (number) {
-                tokens.push(number);
-            }
-
-            return tokens;
-        }
-
-        function priority(operator) {
-            return operator === "+" || operator === "-" ? 1 : 2;
-        }
-
-        function applyOperator(operator, right, left) {
-            if (operator === "+") return left + right;
-            if (operator === "-") return left - right;
-            if (operator === "*") return left * right;
-            if (operator === "/") return left / right;
-            return left % right;
-        }
-
-        function saveHistory(expression, answer) {
-            history.unshift({
-                expression: formatExpression(expression),
-                answer
-            });
-
-            history = history.slice(0, 12);
-            localStorage.setItem("calculatorHistory", JSON.stringify(history));
+        function saveToHistory(expr, result) {
+            calcHistory.unshift({ expr: niceExpr(expr), result: result });
+            calcHistory = calcHistory.slice(0, 12);
+            localStorage.setItem("calcHistory", JSON.stringify(calcHistory));
             renderHistory();
         }
 
         function renderHistory() {
             historyList.innerHTML = "";
-
-            if (!history.length) {
-                const emptyItem = document.createElement("li");
-                emptyItem.className = "empty-history";
-                emptyItem.textContent = "No calculations yet.";
-                historyList.appendChild(emptyItem);
+            if (calcHistory.length === 0) {
+                var li = document.createElement("li");
+                li.className = "empty-history";
+                li.textContent = "No calculations yet.";
+                historyList.appendChild(li);
                 return;
             }
-
-            history.forEach((item, index) => {
-                const historyItem = document.createElement("li");
-
-                const label = document.createElement("span");
-                label.textContent = `${item.expression} = ${item.answer}`;
-                label.style.flex = "1";
-                label.onclick = () => {
-                    display.value = item.answer;
-                    previousCalculation.textContent = `${item.expression} =`;
-                    justCalculated = true;
-                };
-
-                const deleteBtn = document.createElement("button");
-                deleteBtn.className = "delete-item";
-                deleteBtn.type = "button";
-                deleteBtn.setAttribute("aria-label", "Delete this entry");
-                deleteBtn.textContent = "×";
-                deleteBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    deleteHistory(index);
-                };
-
-                historyItem.appendChild(label);
-                historyItem.appendChild(deleteBtn);
-                historyList.appendChild(historyItem);
-            });
+            for (var i = 0; i < calcHistory.length; i++) {
+                buildRow(i);
+            }
         }
 
-        function deleteHistory(index) {
-            history.splice(index, 1);
-            localStorage.setItem("calculatorHistory", JSON.stringify(history));
-            renderHistory();
+        function buildRow(index) {
+            var entry = calcHistory[index];
+            var li = document.createElement("li");
+            var span = document.createElement("span");
+            var btn = document.createElement("button");
+
+            span.className = "history-text";
+            span.textContent = entry.expr + " = " + entry.result;
+            span.onclick = (function(i) {
+                return function() {
+                    display.value = calcHistory[i].result;
+                    prevLine.textContent = calcHistory[i].expr + " =";
+                    freshResult = true;
+                };
+            })(index);
+
+            btn.className = "delete-item";
+            btn.type = "button";
+            btn.textContent = "×";
+            btn.onclick = (function(i) {
+                return function(e) {
+                    e.stopPropagation();
+                    calcHistory.splice(i, 1);
+                    localStorage.setItem("calcHistory", JSON.stringify(calcHistory));
+                    renderHistory();
+                };
+            })(index);
+
+            li.appendChild(span);
+            li.appendChild(btn);
+            historyList.appendChild(li);
         }
 
         function clearHistory() {
-            history = [];
-            localStorage.removeItem("calculatorHistory");
+            calcHistory = [];
+            localStorage.removeItem("calcHistory");
             renderHistory();
         }
 
@@ -585,23 +450,15 @@
             historyPanel.classList.toggle("open");
         }
 
-        function formatExpression(expression) {
-            return expression
-                .replace(/\*/g, "×")
-                .replace(/\//g, "÷");
-        }
-
-        document.addEventListener("keydown", (event) => {
-            const key = event.key;
-
-            if (/^[0-9+\-*/%.]$/.test(key)) {
-                addValue(key);
-            } else if (key === "Enter") {
-                event.preventDefault();
-                calculateAnswer();
-            } else if (key === "Backspace") {
-                deleteLastValue();
-            } else if (key === "Escape") {
+        document.addEventListener("keydown", function(e) {
+            if (/^[0-9+\-*/%.]$/.test(e.key)) {
+                addValue(e.key);
+            } else if (e.key === "Enter") {
+                e.preventDefault();
+                calculate();
+            } else if (e.key === "Backspace") {
+                deleteLast();
+            } else if (e.key === "Escape") {
                 clearDisplay();
             }
         });
